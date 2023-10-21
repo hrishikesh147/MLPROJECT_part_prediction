@@ -1,8 +1,6 @@
 from src.ML_Part_predict import logger
 from src.ML_Part_predict.pipeline.Pipe_stage01_data_ingestion import DataIngestion_Training_pipeline
-
-logger.info("welcome to custom logger")
-
+from src.ML_Part_predict.pipeline.Pipe_stage02_data_validation import DataValidation_Training_Pipeline
 
 STAGE_NAME= "Data Ingestion Stage"
 try:
@@ -10,5 +8,15 @@ try:
     dat=DataIngestion_Training_pipeline()
     dat.main()
     logger.info(f"{STAGE_NAME} Completed...")
+except Exception as e:
+    raise e
+
+
+STAGE_NAME="Data Validation Stage"
+try:
+    logger.info(f"{STAGE_NAME} started....")
+    dat=DataValidation_Training_Pipeline()
+    dat.main()
+    logger.info(f"{STAGE_NAME} completed....")
 except Exception as e:
     raise e

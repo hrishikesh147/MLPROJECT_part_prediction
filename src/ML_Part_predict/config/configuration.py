@@ -1,6 +1,6 @@
 from src.ML_Part_predict.constants import *
 from src.ML_Part_predict.utils.common import read_yaml,create_directories
-from src.ML_Part_predict.entity.config_entity import DataIngestionConfig
+from src.ML_Part_predict.entity.config_entity import (DataIngestionConfig,DataValidationConfig)
 
 
 class ConfigurationManager:
@@ -23,3 +23,18 @@ class ConfigurationManager:
         )
 
         return data_ingestion_config
+    
+    def get_data_validation_config(self) -> DataValidationConfig:
+        config=self.config.data_validation
+        schema=self.schema.COLUMNS
+
+        create_directories([config.root_dir])
+
+        data_val_config = DataValidationConfig(
+            root_dir=config.root_dir,
+            unzip_dir=config.unzip_dir,
+            STATUS_FILE=config.STATUS_FILE,
+            all_schema=schema
+        )
+
+        return data_val_config

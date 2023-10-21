@@ -1,1 +1,17 @@
-key1: value1
+COLUMNS:
+  VehicleModel: object
+  VehicleYear: int64 
+  PartName: object
+  HoursOfOperation: float64
+  SupplierName: object
+  ClaimDate: object
+  SettlementAmount: float64
+  MaintenanceFrequency: object
+  EnvironmentCondition: object
+  OperationalIntensity: object
+  WarrantyStatus: object
+  PreviousFailures: int64
+  pass_fail: object
+
+TARGET_COLUMN:
+  name: pass_fail
