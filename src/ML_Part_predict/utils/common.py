@@ -12,7 +12,7 @@ def read_yaml(filepath:Path) -> ConfigBox:
         with open(filepath) as y:
             content=yaml.safe_load(y)
             logger.info(f"yaml file {content} loaded successfully")
-            return ConfigBox(y)
+            return ConfigBox(content)
         
     except Exception as e:
         raise e
@@ -22,7 +22,7 @@ def create_directories(filep:list, verbose=True):
     for i in filep:
         os.makedirs(i,exist_ok=True)
         if verbose:
-            logger.info(f"created directory at path {filep}")
+            logger.info(f"created directory at path {i}")
 
 @ensure_annotations
 def save_json(save_in_path:Path,data:dict):
