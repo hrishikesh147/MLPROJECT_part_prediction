@@ -1,6 +1,6 @@
 from src.ML_Part_predict.constants import *
 from src.ML_Part_predict.utils.common import read_yaml,create_directories
-from src.ML_Part_predict.entity.config_entity import (DataIngestionConfig,DataValidationConfig,DataTransformConfig)
+from src.ML_Part_predict.entity.config_entity import (DataIngestionConfig,DataValidationConfig,DataTransformConfig,ModelTrainerConfig)
 
 
 class ConfigurationManager:
@@ -50,3 +50,26 @@ class ConfigurationManager:
             data_dir=config.data_dir
         )
         return data_transform_config
+    
+    def get_model_trainer_config(self)->ModelTrainerConfig:
+        config=self.config.model_trainer
+        params=self.params.random_forest
+        schema=self.schema.TARGET_COLUMN
+
+        create_directories([config.root_dir])
+
+        model_trainer_config=ModelTrainerConfig(
+            root_dir=config.root_dir,
+            train_data_path=config.train_data_path,
+            test_data_path=config.test_data_path,
+            model_name=config.model_name,
+            target_column=schema.name,
+            n_estimators=params.n_estimators,
+            max_depth=params.max_depth,
+            min_samples_split=params.min_samples_split,
+            min_samples_leaf=params.min_samples_leaf,
+            bootstrap=params.bootstrap
+
+        )
+
+        return model_trainer_config
