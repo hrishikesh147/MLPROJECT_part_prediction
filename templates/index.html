@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Web App</title>
+        <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="static/css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="/">Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        <!-- You can uncomment these or add additional navigation links if needed -->
+                        <!-- <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li> -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('static/assets/img/vehicle.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Vehicle Part Predictions</h1>
+                            <span class="subheading">Predict if the part will pass or fail</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <h2>Please Fill The Information</h2>
+            <form class="form-detail" action="/predict" method="post">
+                <label for="VehicleModel">Vehicle Model:</label>
+                <select name="VehicleModel">
+                    <option value="Model A">Model A</option>
+                    <option value="Model B">Model B</option>
+                    <option value="Model C">Model C</option>
+                    <option value="Model D">Model D</option>
+                </select>
+
+                <label for="VehicleYear">Vehicle Year:</label>
+                <select name="VehicleYear">
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                </select>
+
+                <label for="PartName">Part Name:</label>
+                <select name="PartName">
+                    <option value="Alternator">Alternator</option>
+                    <option value="Brake">Brake</option>
+                    <option value="Engine">Engine</option>
+                    <option value="Headlight">Headlight</option>
+                    <option value="Radiator">Radiator</option>
+                </select>
+
+                <label for="HoursOfOperation">Hours Of Operation:</label>
+                <input type="number" step="0.01" name="HoursOfOperation" placeholder="Enter hours of operation" required>
+
+                <label for="SupplierName">Supplier Name:</label>
+                <select name="SupplierName">
+                    <option value="AutoPartsCo">AutoPartsCo</option>
+                    <option value="MotoComponentsLtd">MotoComponentsLtd</option>
+                    <option value="DriveLineTech">DriveLineTech</option>
+                    <option value="RideEquipCorp">RideEquipCorp</option>
+                </select>
+
+                <label for="ClaimDate">Claim Date:</label>
+                <input type="datetime-local" name="ClaimDate" required>
+
+                <label for="SettlementAmount">Settlement Amount:</label>
+                <input type="number" step="0.01" name="SettlementAmount" placeholder="Enter the settlement amount" required>
+
+                <label for="MaintenanceFrequency">MaintenanceFrequency:</label>
+                <select name="MaintenanceFrequency">
+                    <option value="500 hours">500 hours</option>
+                    <option value="1000 hours">1000 hours</option>
+                    <option value="1500 hours">1500 hours</option>
+                </select>
+
+                <label for="EnvironmentCondition">EnvironmentCondition:</label>
+                <select name="EnvironmentCondition">
+                    <option value="Urban">Urban</option>
+                    <option value="Rural">Rural</option>
+                    <option value="Coastal">Coastal</option>
+                    <option value="Mountainous">Mountainous</option>
+                </select>
+
+                <label for="OperationalIntensity">OperationalIntensity:</label>
+                <select name="OperationalIntensity">
+                    <option value="Light">Light</option>
+                    <option value="Moderate">Moderate</option>
+                    <option value="Heavy">Heavy</option>
+                </select>
+
+                <label for="WarrantyStatus">WarrantyStatus:</label>
+                <select name="WarrantyStatus">
+                    <option value="In Warranty">In Warranty</option>
+                    <option value="Out of Warranty">Out of Warranty</option>
+                </select>
+
+                <label for="PreviousFailures">PreviousFailures:</label>
+                <select name="PreviousFailures">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                
+                <!-- ... Add other input fields as needed ... -->
+
+                <div class="form-row-last">
+                    <input type="submit" name="submit" value="Predict">
+                </div>
+            </form>
+        </div>
+
+        <!-- Footer-->
+        <footer class="border-top">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <ul class="list-inline text-center">
+                            <!-- Add your social links here -->
+                        </ul>
+                        <div class="small text-center text-muted fst-italic"></div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="static/js/scripts.js"></script>
+    </body>
+</html>
